@@ -12,7 +12,7 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v3
 
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -22,8 +22,9 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt update
-        sudo apt install -y python3-pip python3-setuptools python3-wheel python3-distutils build-essential git zip unzip zlib1g-dev
+        sudo apt install -y python3-pip python3-setuptools python3-wheel build-essential git zip unzip zlib1g-dev openjdk-17-jdk
         pip install --upgrade pip
+        pip install setuptools==67.7.2
         pip install cython buildozer
 
     - name: Build APK
